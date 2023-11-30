@@ -29,7 +29,7 @@ const createPost = asyncHandler(async (req, res) => {
       const post = await Post
         .findById(newPost._id)
         .populate('author', 'username')
-      res.json(post);
+      res.json(post); // send the response with the username as author
     } catch (err) {
       console.error(err);
       res.status(400).send('Server error');
