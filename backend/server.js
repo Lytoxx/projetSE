@@ -5,6 +5,7 @@ const connectedDB = require('./Config/db');
 const userRoutes = require('./routes/userRoutes');
 const chatRoutes = require('./routes/chatRoutes');
 const messageRoutes = require('./routes/messageRoutes');
+const postRoutes = require('./routes/postRoutes');
 const {notfound, errorHandler} = require('./middleware/errorMiddleware');
 
 
@@ -15,6 +16,7 @@ connectedDB();
 const port = process.env.PORT || 5000;
 app.use(express.json()) //accepet json data in the body
 app.use('/api/user',userRoutes)
+app.use('/api/post',postRoutes)
 app.use('/api/chat',chatRoutes)
 app.use('/api/message',messageRoutes)
 
